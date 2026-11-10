@@ -1,0 +1,25 @@
+{
+  "task": "make_pizza",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 28781,
+  "success": false,
+  "agent_distance": {
+    "base": 44.48623676072104,
+    "left": 132.13992229688762,
+    "right": 102.36825589704175
+  },
+  "normalized_agent_distance": {
+    "base": 1.2783841507181295,
+    "left": 0.2536546065517814,
+    "right": 0.4305387408800587
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 28781,
+    "simulator_time": 959.3666666666667,
+    "normalized_time": 0.6666524790660505
+  }
+}

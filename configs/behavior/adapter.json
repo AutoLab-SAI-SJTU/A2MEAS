@@ -1,0 +1,131 @@
+{
+  "model": "model_20",
+  "num_inference_steps": 2,
+  "execution_horizon": 16,
+  "weights": {
+    "bytes": 7852896,
+    "sha256": "97ba6e7ce4c194b6aec228d6c5c3a9e8a02ac74e0d8f08037a28b3c55ee85d1e"
+  },
+  "tasks": {
+    "0": {
+      "task": "turning_on_radio",
+      "skill": {
+        "id": "task000_press",
+        "name": "press",
+        "correction_text": "Align the operating hand with the radio power button and press accurately while keeping the radio stable."
+      },
+      "id": 0
+    },
+    "1": {
+      "task": "picking_up_trash",
+      "skill": {
+        "id": "task001_grasp",
+        "name": "grasp",
+        "correction_text": "Align the gripper with the visible trash item and establish a stable grasp."
+      },
+      "id": 1
+    },
+    "6": {
+      "task": "hiding_Easter_eggs",
+      "skill": {
+        "id": "task006_grasp",
+        "name": "grasp",
+        "correction_text": "Align with the currently visible Easter egg and lift it without pushing it away."
+      },
+      "id": 6
+    },
+    "17": {
+      "task": "bringing_water",
+      "skill": {
+        "id": "task017_grasp",
+        "name": "grasp",
+        "correction_text": "Reach to the visible water bottle and close the gripper only after alignment."
+      },
+      "id": 17
+    },
+    "18": {
+      "task": "tidying_bedroom",
+      "skill": {
+        "id": "task018_grasp",
+        "name": "grasp",
+        "correction_text": "Grasp the current bedroom object, such as a slipper or book, without repeated empty attempts."
+      },
+      "id": 18
+    },
+    "22": {
+      "task": "putting_shoes_on_rack",
+      "skill": {
+        "id": "task022_place",
+        "name": "place",
+        "correction_text": "Align the held shoe with the intended rack opening and release it fully inside."
+      },
+      "id": 22
+    },
+    "30": {
+      "task": "setting_the_fire",
+      "skill": {
+        "id": "task030_ignite",
+        "name": "ignite",
+        "correction_text": "Orient and align the held ignition source with the current fireplace target."
+      },
+      "id": 30
+    },
+    "32": {
+      "task": "wash_a_baseball_cap",
+      "skill": {
+        "id": "task032_grasp",
+        "name": "grasp",
+        "correction_text": "Approach the baseball cap brim and close the gripper with a stable hold."
+      },
+      "id": 32
+    },
+    "34": {
+      "task": "hanging_pictures",
+      "skill": {
+        "id": "task034_hang",
+        "name": "hang",
+        "correction_text": "Align the held picture attachment with the wall nail and release only after contact."
+      },
+      "id": 34
+    },
+    "35": {
+      "task": "attach_a_camera_to_a_tripod",
+      "skill": {
+        "id": "task035_attach",
+        "name": "attach",
+        "correction_text": "Orient the camera mount to the tripod connector and establish attachment before release."
+      },
+      "id": 35
+    },
+    "40": {
+      "task": "make_microwave_popcorn",
+      "skill": {
+        "id": "task040_device",
+        "name": "device",
+        "correction_text": "Align with the microwave door or control and complete its current operation."
+      },
+      "id": 40
+    },
+    "45": {
+      "task": "cook_hot_dogs",
+      "skill": {
+        "id": "task045_place",
+        "name": "place",
+        "correction_text": "Place the held food inside the intended microwave area and release it stably."
+      },
+      "id": 45
+    }
+  },
+  "execution": {
+    "filter_window": 5,
+    "filter_sigma": 1.0,
+    "filter_skip_dims": [
+      0,
+      1,
+      2,
+      14,
+      22
+    ],
+    "arm_step_limit": 0.1
+  }
+}

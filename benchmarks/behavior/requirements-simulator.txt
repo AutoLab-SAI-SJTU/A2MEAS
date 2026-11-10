@@ -1,0 +1,6 @@
+torch==2.7.0+cu128
+torchvision==0.22.0+cu128
+torchaudio==2.7.0+cu128
+pyarrow==22.0.0
+packaging==25.0
+warp-lang==1.12.1

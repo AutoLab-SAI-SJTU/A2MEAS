@@ -1,0 +1,496 @@
+diff --git a/OmniGibson/omnigibson/macros.py b/OmniGibson/omnigibson/macros.py
+index dad2a11..73d74b5 100644
+--- a/OmniGibson/omnigibson/macros.py
++++ b/OmniGibson/omnigibson/macros.py
+@@ -156,7 +156,7 @@ gm.USE_NUMPY_CONTROLLER_BACKEND = True
+ gm.GUI_VIEWPORT_ONLY = False
+ 
+ # Whether to use the viewer camera or not
+-gm.RENDER_VIEWER_CAMERA = True
++gm.RENDER_VIEWER_CAMERA = os.getenv("OMNIGIBSON_RENDER_VIEWER_CAMERA", "True").lower() in ("true", "1", "t")
+ 
+ # Whether to batch all per-env robot cameras into a single tiled render product when num_envs > 1.
+ # Tiled rendering issues one render pass for every env instead of one per camera, which is much faster
+@@ -190,6 +190,10 @@ gm.ENABLE_HQ_RENDERING = False
+ # objects from tunneling through each other)
+ gm.ENABLE_CCD = False
+ 
++# Cache cooked meshes across simulator starts; keep physics settings unchanged.
++gm.ENABLE_PHYSX_LOCAL_MESH_CACHE = os.getenv("OMNIGIBSON_ENABLE_PHYSX_LOCAL_MESH_CACHE", "True").lower() in ("true", "1", "t")
++gm.PHYSX_LOCAL_MESH_CACHE_SIZE_MB = int(os.getenv("OMNIGIBSON_PHYSX_LOCAL_MESH_CACHE_SIZE_MB", "4096"))
++
+ # Pairs setting -- USD default is 256 * 1024, physx default apparently is 32 * 1024.
+ gm.GPU_PAIRS_CAPACITY = 256 * 1024
+ # Aggregate pairs setting -- default is 1024, but is often insufficient for large scenes
+diff --git a/OmniGibson/omnigibson/objects/dataset_object.py b/OmniGibson/omnigibson/objects/dataset_object.py
+index 02768a5..f759682 100644
+--- a/OmniGibson/omnigibson/objects/dataset_object.py
++++ b/OmniGibson/omnigibson/objects/dataset_object.py
+@@ -21,7 +21,6 @@ from omnigibson.utils.constants import (
+     DEFAULT_REVOLUTE_JOINT_FRICTION,
+     DEFAULT_PRISMATIC_JOINT_DAMPING,
+     DEFAULT_REVOLUTE_JOINT_DAMPING,
+-    JointType,
+     PrimType,
+ )
+ from omnigibson.utils.ui_utils import create_module_logger
+@@ -360,13 +359,6 @@ class DatasetObject(USDObject):
+             with og.sim.editing_usd():
+                 recursive_light_update(self._prim)
+ 
+-        # Set the joint frictions based on joint type
+-        for joint in self._joints.values():
+-            if joint.joint_type == JointType.JOINT_PRISMATIC:
+-                joint.friction = DEFAULT_PRISMATIC_JOINT_FRICTION
+-            elif joint.joint_type == JointType.JOINT_REVOLUTE:
+-                joint.friction = DEFAULT_REVOLUTE_JOINT_FRICTION
+-
+     def _apply_usd_hotfixes(self, stage, default_prim):
+         super()._apply_usd_hotfixes(stage, default_prim)
+ 
+@@ -451,12 +443,14 @@ class DatasetObject(USDObject):
+             revolute_joints = find_all_prim_children_with_type(prim_type="PhysicsRevoluteJoint", root_prim=self._prim)
+             with og.sim.editing_usd():
+                 for prismatic_joint in prismatic_joints:
++                    lazy.pxr.PhysxSchema.PhysxJointAPI.Apply(prismatic_joint).CreateJointFrictionAttr(DEFAULT_PRISMATIC_JOINT_FRICTION)
+                     prismatic_joint.GetAttribute("drive:linear:physics:type").Set("acceleration")
+                     prismatic_joint.GetAttribute("drive:linear:physics:damping").Set(DEFAULT_PRISMATIC_JOINT_DAMPING)
+                     prismatic_joint.GetAttribute("drive:linear:physics:stiffness").Set(0.0)
+                     prismatic_joint.GetAttribute("drive:linear:physics:targetPosition").Set(0.0)
+                     prismatic_joint.GetAttribute("drive:linear:physics:targetVelocity").Set(0.0)
+                 for revolute_joint in revolute_joints:
++                    lazy.pxr.PhysxSchema.PhysxJointAPI.Apply(revolute_joint).CreateJointFrictionAttr(DEFAULT_REVOLUTE_JOINT_FRICTION)
+                     revolute_joint.GetAttribute("drive:angular:physics:type").Set("acceleration")
+                     revolute_joint.GetAttribute("drive:angular:physics:damping").Set(DEFAULT_REVOLUTE_JOINT_DAMPING)
+                     revolute_joint.GetAttribute("drive:angular:physics:stiffness").Set(0.0)
+diff --git a/OmniGibson/omnigibson/omnigibson_5_1_0.kit b/OmniGibson/omnigibson/omnigibson_5_1_0.kit
+index 2ab3946..09ea71a 100644
+--- a/OmniGibson/omnigibson/omnigibson_5_1_0.kit
++++ b/OmniGibson/omnigibson/omnigibson_5_1_0.kit
+@@ -9,6 +9,7 @@ keywords = ["experience", "app", "usd", "isaacsim"] # That makes it browsable in
+ [dependencies]
+ "isaacsim.exp.base" = {}
+ "omni.flowusd" = {}
++"omni.physx.fabric" = {}
+ #"omni.kit.xr.profile.vr" = {}
+ "omni.physx.supportui" = {}
+ #"omni.isaac.physics_inspector" = {}
+diff --git a/OmniGibson/omnigibson/prims/xform_prim.py b/OmniGibson/omnigibson/prims/xform_prim.py
+index 5f13349..5ec5970 100644
+--- a/OmniGibson/omnigibson/prims/xform_prim.py
++++ b/OmniGibson/omnigibson/prims/xform_prim.py
+@@ -232,7 +232,6 @@ class XFormPrim(BasePrim):
+         position = lazy.pxr.Gf.Vec3d(*position.tolist())
+         if "xformOp:translate" not in properties:
+             logger.error("Translate property needs to be set for {} before setting its position".format(self.name))
+-        self.set_attribute("xformOp:translate", position)
+         orientation = orientation[[3, 0, 1, 2]].tolist()
+         if "xformOp:orient" not in properties:
+             logger.error("Orient property needs to be set for {} before setting its orientation".format(self.name))
+@@ -241,7 +240,9 @@ class XFormPrim(BasePrim):
+             rotq = lazy.pxr.Gf.Quatf(*orientation)
+         else:
+             rotq = lazy.pxr.Gf.Quatd(*orientation)
++        # Write the complete pose before synchronizing Fabric.
+         with og.sim.editing_usd():
++            self._prim.GetAttribute("xformOp:translate").Set(position)
+             xform_op.Set(rotq)
+ 
+         og.sim.fabric_hierarchy.update_world_xforms()
+diff --git a/OmniGibson/omnigibson/robots/robot.py b/OmniGibson/omnigibson/robots/robot.py
+index ef2a0e1..679e090 100644
+--- a/OmniGibson/omnigibson/robots/robot.py
++++ b/OmniGibson/omnigibson/robots/robot.py
+@@ -1321,7 +1321,7 @@ class Robot(USDObject, GymObservable):
+             self._rigid_contact_view = og.sim.physics_sim_view.create_rigid_contact_view(
+                 pattern=f"/World/scene_{self.scene.idx}/*/*",
+                 filter_patterns=finger_paths,
+-                max_contact_data_count=len(finger_paths) * 8,
++                max_contact_data_count=RigidContactAPI.get_max_contact_data_count(len(finger_paths)),
+             )
+ 
+         row_paths = list(self._rigid_contact_view.sensor_paths)
+diff --git a/OmniGibson/omnigibson/scenes/scene_base.py b/OmniGibson/omnigibson/scenes/scene_base.py
+index 445c74a..9b85d6b 100644
+--- a/OmniGibson/omnigibson/scenes/scene_base.py
++++ b/OmniGibson/omnigibson/scenes/scene_base.py
+@@ -4,6 +4,7 @@ import os
+ import shutil
+ import tempfile
+ from abc import ABC
++from copy import deepcopy
+ from pathlib import Path
+ 
+ import torch as th
+@@ -43,7 +44,9 @@ from omnigibson.utils.python_utils import (
+ )
+ from omnigibson.utils.registry_utils import SerializableRegistry
+ from omnigibson.utils.ui_utils import create_module_logger
+-from omnigibson.utils.usd_utils import CollisionAPI, add_asset_to_stage, create_usd_stage
++from omnigibson.utils.usd_utils import (
++    CollisionAPI, add_asset_to_stage, create_usd_stage, scene_relative_prim_path_to_absolute,
++)
+ 
+ # Create module logger
+ log = create_module_logger(module_name=__name__)
+@@ -149,8 +152,7 @@ class Scene(Serializable, Registerable, Recreatable, ABC):
+                 self._init_objs[obj_name] = obj
+ 
+             # Store presampled robot poses from metadata
+-            for key, data in task_metadata.items():
+-                self.write_task_metadata(key=key, data=data)
++            self._task_metadata = deepcopy(task_metadata)
+ 
+     @property
+     def registry(self):
+@@ -912,8 +914,7 @@ class Scene(Serializable, Registerable, Recreatable, ABC):
+         if "metadata" in scene_info:
+             metadata = scene_info["metadata"]
+             task_metadata = metadata["task"] if "task" in metadata else metadata
+-            for key, data in task_metadata.items():
+-                self.write_task_metadata(key=key, data=data)
++            self._task_metadata = deepcopy(task_metadata)
+ 
+         # Make sure the class type is the same
+         if self.__class__.__name__ != init_info["class_name"]:
+@@ -921,56 +922,73 @@ class Scene(Serializable, Registerable, Recreatable, ABC):
+                 f"Got mismatch in scene type: current is type {self.__class__.__name__}, trying to load type {init_info['class_name']}"
+             )
+ 
+-        # Work out every topology change before touching either systems or objects. System
+-        # clear/init can remove/add particle template objects, so it must participate in the
+-        # same stop -> mutate topology -> play lifecycle as ordinary object changes.
+-        current_systems = set(self.active_systems.keys())
+-        load_systems = set(scene_info["state"]["registry"]["system_registry"].keys())
+-        systems_to_remove = current_systems - load_systems
+-        systems_to_add = load_systems - current_systems
+-        load_obj_names = set(scene_info["objects_info"]["init_info"].keys())
+-        current_obj_names = set(self.object_registry.get_dict("name").keys())
+-        object_topology_changed = current_obj_names != load_obj_names
++        def construction(info):
++            # File hashes are provenance hints; the pinned asset, not this hint, is loaded.
++            info = dict(info, args={k: v for k, v in info["args"].items() if k != "expected_file_hash"})
++            return json.dumps(info, cls=TorchEncoder, sort_keys=True)
+ 
+-        restart_sim = bool(systems_to_remove or systems_to_add or object_topology_changed) and og.sim.is_playing()
++        wanted = scene_info["objects_info"]["init_info"]
++        load_obj_names = set(wanted)
+ 
+-        if restart_sim:
+-            og.sim.stop()
++        def changed_objects():
++            current = self.object_registry.get_dict("name")
++            return {name for name in current.keys() & load_obj_names
++                    if construction(current[name].get_init_info()) != construction(wanted[name])}
+ 
+-        # Synchronize systems -- we need to check for pruning currently-existing systems,
+-        # as well as creating any non-existing systems. This is deliberately after stop():
+-        # MacroParticleSystem.clear() removes its particle template object, and doing that
+-        # while playing enters Simulator.removing_objects(), which first dumps the entire
+-        # simulation through tensor views that a prior transition may already have invalidated.
+-        for name in systems_to_remove:
+-            self.clear_system(name)
+-        for name in systems_to_add:
+-            self.get_system(name, force_init=True)
+-
+-        # System init / clear can itself add or remove particle-template objects. Recompute the
+-        # object delta afterwards so those objects are not removed twice or recreated manually.
+-        current_obj_names = set(self.object_registry.get_dict("name").keys())
+-        objs_to_remove = current_obj_names - load_obj_names
+-        objs_to_add = load_obj_names - current_obj_names
+-
+-        # Delete any extra objects that currently exist in the scene stage
+-        objects_to_remove = [self.object_registry("name", obj_to_remove) for obj_to_remove in objs_to_remove]
+-        og.sim.batch_remove_objects(objects_to_remove)
+-
+-        # Add any extra objects that do not currently exist in the scene stage
+-        objects_to_add = [
+-            create_object_from_init_info(scene_info["objects_info"]["init_info"][obj_to_add])
+-            for obj_to_add in objs_to_add
+-        ]
+-        # Add new physics prims while stopped, then reuse play() to rebuild handles before loading poses.
+-
+-        og.sim.batch_add_objects(objects_to_add, scenes=[self] * len(objects_to_add))
+-
+-        if restart_sim:
+-            og.sim.play()
+-
+-        # Load state
+-        self.load_state(state, serialized=False)
++        current_systems = set(self.active_systems)
++        load_systems = set(scene_info["state"]["registry"]["system_registry"])
++        systems_to_remove = current_systems - load_systems
++        systems_to_add = load_systems - current_systems
++        topology_changed = bool(systems_to_remove or systems_to_add or changed_objects()
++                                or set(self.object_registry.get_dict("name")) != load_obj_names)
++        restart_sim = topology_changed and og.sim.is_playing()
++        transition_rules = gm.ENABLE_TRANSITION_RULES
++        if topology_changed:
++            with gm.unlocked():
++                gm.ENABLE_TRANSITION_RULES = False
++            self.transition_rule_api.clear()
++        try:
++            if restart_sim:
++                og.sim.stop()
++            try:
++                for name in systems_to_remove:
++                    self.clear_system(name)
++                for name in systems_to_add:
++                    self.get_system(name, force_init=True)
++                # System changes can themselves add or remove particle-template objects.
++                current_obj_names = set(self.object_registry.get_dict("name"))
++                replaced = changed_objects()
++                remove = (current_obj_names - load_obj_names) | replaced
++                add = (load_obj_names - current_obj_names) | replaced
++                objects = [create_object_from_init_info(wanted[name]) for name in sorted(add)]
++                if remove:
++                    og.sim.batch_remove_objects([self.object_registry("name", name) for name in sorted(remove)])
++                if objects:
++                    # Removal may only deactivate an ancestral prim. Every reconstructed object
++                    # must load its own asset, including objects absent from the current registry.
++                    scene_layers = {spec.layer for spec in self._scene_prim.prim.GetPrimStack()}
++                    with og.sim.editing_usd():
++                        for obj in objects:
++                            path = scene_relative_prim_path_to_absolute(self, obj.relative_prim_path)
++                            prim = og.sim.stage.GetPrimAtPath(path)
++                            if prim:
++                                specs = [(spec.layer, spec.path) for spec in prim.GetPrimStack()
++                                         if spec.layer in scene_layers]
++                                for layer, spec_path in specs:
++                                    edit = lazy.pxr.Sdf.BatchNamespaceEdit()
++                                    edit.Add(spec_path, lazy.pxr.Sdf.Path.emptyPath)
++                                    assert layer.Apply(edit), f"Could not replace scene object at {path}"
++                    og.sim.batch_add_objects(objects, scenes=[self] * len(objects))
++            finally:
++                if restart_sim:
++                    og.sim.play()
++            self.load_state(state, serialized=False)
++        finally:
++            if topology_changed:
++                with gm.unlocked():
++                    gm.ENABLE_TRANSITION_RULES = transition_rules
++                if transition_rules:
++                    self.transition_rule_api.refresh_all_rules()
+ 
+         if update_initial_file:
+             self.update_initial_file(scene_file=scene_file)
+diff --git a/OmniGibson/omnigibson/simulator.py b/OmniGibson/omnigibson/simulator.py
+index a5c4cce..4117d82 100644
+--- a/OmniGibson/omnigibson/simulator.py
++++ b/OmniGibson/omnigibson/simulator.py
+@@ -164,14 +164,11 @@ class SuppressLogsUntilError:
+         os.close(self._old_stdout)
+         os.close(self._old_stderr)
+ 
+-        # On error → dump everything + traceback
++        with open(self._tmppath, "r") as stream:
++            output = stream.read()
++        if exc_type is not None or any(token in output for token in ("[Error]", "[ERROR]", "[Fatal]", "[FATAL]", "Traceback (most recent call last):")):
++            print(output, file=sys.stderr, end="", flush=True)
+         if exc_type is not None:
+-            print("\n=== Isaac Sim logs (dump on error) ===\n")
+-            with open(self._tmppath, "r") as f:
+-                print(f.read())
+-            print("=== End of Isaac Sim logs ===\n")
+-
+-            print("Python traceback:\n")
+             traceback.print_exception(exc_type, exc_val, exc_tb)
+ 
+         # Cleanup
+@@ -259,22 +256,33 @@ def _launch_app():
+         icon_file_target = Path(exp_path) / "OmniGibson_logo.png"
+ 
+         try:
+-            shutil.copyfile(kit_file, kit_file_target)
+-            shutil.copyfile(icon_file, icon_file_target)
++            for source, target in ((kit_file, kit_file_target), (icon_file, icon_file_target)):
++                content = source.read_bytes()
++                if target.is_file() and target.read_bytes() == content:
++                    continue
++                with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as stream:
++                    temporary = Path(stream.name)
++                    try:
++                        stream.write(content)
++                        stream.flush()
++                        temporary.chmod(source.stat().st_mode & 0o777)
++                        temporary.replace(target)
++                    finally:
++                        temporary.unlink(missing_ok=True)
+         except Exception as e:
+             raise e from ValueError(f"Failed to copy {kit_file_name} or {icon_file.name} to Isaac Sim apps directory.")
+ 
+         # Set the MDL search path so that our OmniGibsonVrayMtl can be found.
+         os.environ["MDL_USER_PATH"] = str((Path(__file__).parent / "materials").resolve())
+ 
+-        launch_context = nullcontext if gm.DEBUG else SuppressLogsUntilError if gm.NO_OMNI_LOGS else suppress_omni_log
++        launch_context = SuppressLogsUntilError if gm.HEADLESS or gm.NO_OMNI_LOGS else nullcontext if gm.DEBUG else suppress_omni_log
+ 
+         # Prepare the directories where Omniverse will store its appdata (logs, caches, etc.)
+         local_appdata = Path(gm.APPDATA_PATH) / "local"
+         local_appdata.mkdir(parents=True, exist_ok=True)
+         sys.argv.extend(["--portable-root", str(local_appdata)])
+ 
+-        global_cache_dir = Path(gm.APPDATA_PATH) / "global" / "cache"
++        global_cache_dir = Path(os.getenv("OMNIGIBSON_GLOBAL_CACHE_PATH", str(Path(gm.APPDATA_PATH) / "global" / "cache")))
+         global_cache_dir.mkdir(parents=True, exist_ok=True)
+         sys.argv.append(f"--/app/tokens/omni_global_cache={global_cache_dir}")
+ 
+@@ -640,6 +648,10 @@ def _launch_simulator(*args, **kwargs):
+             self._physics_context.set_invert_collision_group_filter(False)
+             self._physics_context.enable_ccd(gm.ENABLE_CCD)
+             self._physics_context.enable_fabric(True)
++            if gm.ENABLE_PHYSX_LOCAL_MESH_CACHE:
++                settings = lazy.carb.settings.get_settings()
++                settings.set_bool("/persistent/physics/useLocalMeshCache", True)
++                settings.set_int("/persistent/physics/localMeshCacheSizeMB", gm.PHYSX_LOCAL_MESH_CACHE_SIZE_MB)
+ 
+             # Enable GPU dynamics based on whether we need omni particles feature
+             if gm.USE_GPU_DYNAMICS:
+@@ -2249,10 +2261,11 @@ def _launch_simulator(*args, **kwargs):
+         # The simulator init function saves itself as og.sim.
+         Simulator(*args, **kwargs)
+ 
+-        print()
+-        print_icon()
+-        print_logo()
+-        print()
++        if not gm.HEADLESS:
++            print()
++            print_icon()
++            print_logo()
++            print()
+         log.info(f"{'-' * 10} Welcome to {logo_small()}! {'-' * 10}")
+ 
+     return og.sim
+diff --git a/OmniGibson/omnigibson/systems/macro_particle_system.py b/OmniGibson/omnigibson/systems/macro_particle_system.py
+index b2ed750..8ead660 100644
+--- a/OmniGibson/omnigibson/systems/macro_particle_system.py
++++ b/OmniGibson/omnigibson/systems/macro_particle_system.py
+@@ -1490,7 +1490,10 @@ class MacroPhysicalParticleSystem(MacroParticleSystem, PhysicalParticleSystem):
+         if n_particles_to_generate > 0:
+             for i in range(n_particles_to_generate):
+                 # Min scale == max scale, so no need for sampling
+-                self.add_particle(relative_prim_path=f"{self.relative_prim_path}/particles", scale=self.max_scale)
++                super().add_particle(relative_prim_path=f"{self.relative_prim_path}/particles", scale=self.max_scale)
++            # No particle poses are read until the complete batch exists. Rebuild the
++            # global physics/state views once, before _load_state writes the poses.
++            og.sim.update_handles()
+         else:
+             # Remove excess particles
+             self.remove_particles(idxs=th.arange(-n_particles_to_generate))
+diff --git a/OmniGibson/setup.py b/OmniGibson/setup.py
+index 220517f..6f71672 100644
+--- a/OmniGibson/setup.py
++++ b/OmniGibson/setup.py
+@@ -55,7 +55,7 @@ setup(
+         "pillow~=11.0.0",
+         "websockets>=15.0.1",
+         "omegaconf>=2.3.0",
+-        "lerobot[dataset] @ git+https://github.com/wensi-ai/lerobot@release/b1k",
++        "lerobot[dataset] @ git+https://github.com/wensi-ai/lerobot@436812bd8ee39b768c645c248c91f1330834e687",
+     ],
+     extras_require={
+         "dev": [
+diff --git a/setup.sh b/setup.sh
+index 6e0f66c..c402fc6 100755
+--- a/setup.sh
++++ b/setup.sh
+@@ -334,96 +334,8 @@ if [ "$OMNIGIBSON" = true ]; then
+     else
+         echo "Installing Isaac Sim via pip..."
+ 
+-        # For aarch, do alternative install via direct one-liner
+-        if [ "$ARCH" = "aarch64" ]; then
+-            python -m pip install isaacsim[all,extscache]==5.1.0 --extra-index-url https://pypi.nvidia.com
+-        else
+-            # Helper functions
+-            check_glibc_old() {
+-                ldd --version 2>&1 | grep -qE "2\.(31|32|33|34)"
+-            }
+-
+-            install_isaac_packages() {
+-                local temp_dir=$(mktemp -d)
+-                local packages=(
+-                    "omniverse_kit-107.3.1.206797"
+-                    "isaacsim_kernel-5.1.0.0"
+-                    "isaacsim_app-5.1.0.0"
+-                    "isaacsim_core-5.1.0.0"
+-                    "isaacsim_gui-5.1.0.0"
+-                    "isaacsim_utils-5.1.0.0"
+-                    "isaacsim_storage-5.1.0.0"
+-                    "isaacsim_asset-5.1.0.0"
+-                    "isaacsim_sensor-5.1.0.0"
+-                    "isaacsim_robot_motion-5.1.0.0"
+-                    "isaacsim_robot-5.1.0.0"
+-                    "isaacsim_benchmark-5.1.0.0"
+-                    "isaacsim_code_editor-5.1.0.0"
+-                    "isaacsim_ros1-5.1.0.0"
+-                    "isaacsim_cortex-5.1.0.0"
+-                    "isaacsim_example-5.1.0.0"
+-                    "isaacsim_replicator-5.1.0.0"
+-                    "isaacsim_rl-5.1.0.0"
+-                    "isaacsim_robot_setup-5.1.0.0"
+-                    "isaacsim_ros2-5.1.0.0"
+-                    "isaacsim_template-5.1.0.0"
+-                    "isaacsim_test-5.1.0.0"
+-                    "isaacsim-5.1.0.0"
+-                    "isaacsim_extscache_physics-5.1.0.0"
+-                    "isaacsim_extscache_kit-5.1.0.0"
+-                    "isaacsim_extscache_kit_sdk-5.1.0.0"
+-                )
+-
+-                # --fail keeps an HTTP error page from being saved under a .whl name;
+-                # --speed-limit/--speed-time abort a transfer that stalls without erroring.
+-                local curl_opts=(-sS --location --fail --connect-timeout 30 --speed-limit 1024 --speed-time 60)
+-
+-                local wheel_files=()
+-                for pkg in "${packages[@]}"; do
+-                    local pkg_name=${pkg%-*}
+-                    local filename="${pkg}-cp311-none-manylinux_2_35_${ARCH}.whl"
+-                    local url="https://pypi.nvidia.com/${pkg_name//_/-}/$filename"
+-                    local filepath="$temp_dir/$filename"
+-                    local attempt
+-
+-                    echo "Downloading $pkg..."
+-                    for attempt in 1 2 3 4 5; do
+-                        if curl "${curl_opts[@]}" "$url" -o "$filepath"; then
+-                            break
+-                        fi
+-                        if [ "$attempt" -eq 5 ]; then
+-                            echo "ERROR: Failed to download $pkg"
+-                            rm -rf "$temp_dir"
+-                            return 1
+-                        fi
+-                        echo "Retrying $pkg ($attempt/5)..."
+-                        sleep 5
+-                    done
+-
+-                    # Rename for older GLIBC
+-                    if check_glibc_old; then
+-                        local new_filepath="${filepath/manylinux_2_35/manylinux_2_31}"
+-                        mv "$filepath" "$new_filepath"
+-                        filepath="$new_filepath"
+-                    fi
+-
+-                    wheel_files+=("$filepath")
+-                done
+-
+-                echo "Installing Isaac Sim packages..."
+-                python -m pip install "${wheel_files[@]}"
+-                rm -rf "$temp_dir"
+-
+-                # Verify installation
+-                if ! python -c "import isaacsim" 2>/dev/null; then
+-                    echo "ERROR: Isaac Sim installation verification failed"
+-                    return 1
+-                fi
+-            }
+-
+-            install_isaac_packages || { echo "ERROR: Isaac Sim installation failed"; exit 1; }
+-        fi
+-        
++        python -m pip install "isaacsim[all,extscache]==5.1.0" --extra-index-url https://pypi.nvidia.com
++
+         # Extract ISAAC_PATH from isaacsim module
+         ISAAC_PATH=$(python -c "import isaacsim, os; print(os.environ.get('ISAAC_PATH', ''))" 2>/dev/null)
+ 

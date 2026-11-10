@@ -1,0 +1,418 @@
+{
+  "schema_version": 2,
+  "num_inference_steps": 2,
+  "execution": {
+    "filter_window": 5,
+    "filter_sigma": 1.0,
+    "filter_skip_dims": [
+      0,
+      1,
+      2,
+      14,
+      22
+    ],
+    "arm_step_limit": 0.1
+  },
+  "tasks": {
+    "0": {
+      "task": "turning_on_radio",
+      "model": "model_00"
+    },
+    "1": {
+      "task": "picking_up_trash",
+      "model": "model_01"
+    },
+    "2": {
+      "task": "putting_away_Halloween_decorations",
+      "model": "model_02"
+    },
+    "3": {
+      "task": "cleaning_up_plates_and_food",
+      "model": "model_03"
+    },
+    "4": {
+      "task": "can_meat",
+      "model": "model_04"
+    },
+    "5": {
+      "task": "setting_mousetraps",
+      "model": "model_05"
+    },
+    "6": {
+      "task": "hiding_Easter_eggs",
+      "model": "model_01"
+    },
+    "7": {
+      "task": "picking_up_toys",
+      "model": "model_06"
+    },
+    "8": {
+      "task": "rearranging_kitchen_furniture",
+      "model": "model_07"
+    },
+    "9": {
+      "task": "putting_up_Christmas_decorations_inside",
+      "model": "model_04"
+    },
+    "10": {
+      "task": "set_up_a_coffee_station_in_your_kitchen",
+      "model": "model_08"
+    },
+    "11": {
+      "task": "putting_dishes_away_after_cleaning",
+      "model": "model_09"
+    },
+    "12": {
+      "task": "preparing_lunch_box",
+      "model": "model_10"
+    },
+    "13": {
+      "task": "loading_the_car",
+      "model": "model_07"
+    },
+    "14": {
+      "task": "carrying_in_groceries",
+      "model": "model_10"
+    },
+    "15": {
+      "task": "bringing_in_wood",
+      "model": "model_11"
+    },
+    "16": {
+      "task": "moving_boxes_to_storage",
+      "model": "model_12"
+    },
+    "17": {
+      "task": "bringing_water",
+      "model": "model_03"
+    },
+    "18": {
+      "task": "tidying_bedroom",
+      "model": "model_13"
+    },
+    "19": {
+      "task": "outfit_a_basic_toolbox",
+      "model": "model_14"
+    },
+    "20": {
+      "task": "sorting_vegetables",
+      "model": "model_15"
+    },
+    "21": {
+      "task": "collecting_childrens_toys",
+      "model": "model_03"
+    },
+    "22": {
+      "task": "putting_shoes_on_rack",
+      "model": "model_13"
+    },
+    "23": {
+      "task": "boxing_books_up_for_storage",
+      "model": "model_16"
+    },
+    "24": {
+      "task": "storing_food",
+      "model": "model_17"
+    },
+    "25": {
+      "task": "clearing_food_from_table_into_fridge",
+      "model": "model_18"
+    },
+    "26": {
+      "task": "assembling_gift_baskets",
+      "model": "model_11"
+    },
+    "27": {
+      "task": "sorting_household_items",
+      "model": "model_14"
+    },
+    "28": {
+      "task": "getting_organized_for_work",
+      "model": "model_19"
+    },
+    "29": {
+      "task": "clean_up_your_desk",
+      "model": "model_04"
+    },
+    "30": {
+      "task": "setting_the_fire",
+      "model": "model_07"
+    },
+    "31": {
+      "task": "clean_boxing_gloves",
+      "model": "model_07"
+    },
+    "32": {
+      "task": "wash_a_baseball_cap",
+      "model": "model_07"
+    },
+    "33": {
+      "task": "wash_dog_toys",
+      "model": "model_02"
+    },
+    "34": {
+      "task": "hanging_pictures",
+      "model": "model_00"
+    },
+    "35": {
+      "task": "attach_a_camera_to_a_tripod",
+      "model": "model_03"
+    },
+    "36": {
+      "task": "clean_a_patio",
+      "model": "model_19"
+    },
+    "37": {
+      "task": "clean_a_trumpet",
+      "model": "model_00"
+    },
+    "38": {
+      "task": "spraying_for_bugs",
+      "model": "model_11"
+    },
+    "39": {
+      "task": "spraying_fruit_trees",
+      "model": "model_06"
+    },
+    "40": {
+      "task": "make_microwave_popcorn",
+      "model": "model_20"
+    },
+    "41": {
+      "task": "cook_cabbage",
+      "model": "model_21"
+    },
+    "42": {
+      "task": "chop_an_onion",
+      "model": "model_00"
+    },
+    "43": {
+      "task": "slicing_vegetables",
+      "model": "model_10"
+    },
+    "44": {
+      "task": "chopping_wood",
+      "model": "model_15"
+    },
+    "45": {
+      "task": "cook_hot_dogs",
+      "model": "model_20"
+    },
+    "46": {
+      "task": "cook_bacon",
+      "model": "model_06"
+    },
+    "47": {
+      "task": "freeze_pies",
+      "model": "model_18"
+    },
+    "48": {
+      "task": "canning_food",
+      "model": "model_10"
+    },
+    "49": {
+      "task": "make_pizza",
+      "model": "model_19"
+    },
+    "50": {
+      "task": "freeze_fruit",
+      "model": "model_16"
+    },
+    "51": {
+      "task": "cook_a_brisket",
+      "model": "model_06"
+    },
+    "52": {
+      "task": "sorting_bottles_cans_and_paper",
+      "model": "model_07"
+    },
+    "53": {
+      "task": "tidying_living_room",
+      "model": "model_03"
+    },
+    "54": {
+      "task": "putting_away_toys",
+      "model": "model_12"
+    },
+    "55": {
+      "task": "re_shelving_library_books",
+      "model": "model_06"
+    },
+    "56": {
+      "task": "make_rose_centerpieces",
+      "model": "model_18"
+    },
+    "57": {
+      "task": "sweeping_garage",
+      "model": "model_22"
+    },
+    "58": {
+      "task": "stacking_wood",
+      "model": "model_03"
+    },
+    "59": {
+      "task": "organizing_art_supplies",
+      "model": "model_21"
+    },
+    "60": {
+      "task": "scrubbing_bathroom_floor",
+      "model": "model_00"
+    },
+    "61": {
+      "task": "bringing_paper_to_recycling",
+      "model": "model_23"
+    },
+    "62": {
+      "task": "halve_an_egg",
+      "model": "model_06"
+    },
+    "63": {
+      "task": "installing_smoke_detectors",
+      "model": "model_19"
+    },
+    "64": {
+      "task": "setting_the_table",
+      "model": "model_11"
+    },
+    "65": {
+      "task": "unloading_the_car",
+      "model": "model_07"
+    },
+    "66": {
+      "task": "turning_out_all_lights_before_sleep",
+      "model": "model_16"
+    },
+    "67": {
+      "task": "boxing_food_after_dinner",
+      "model": "model_15"
+    },
+    "68": {
+      "task": "cleaning_up_branches_and_twigs",
+      "model": "model_19"
+    },
+    "69": {
+      "task": "vacuuming_floors",
+      "model": "model_09"
+    },
+    "70": {
+      "task": "thawing_frozen_food",
+      "model": "model_04"
+    },
+    "71": {
+      "task": "clean_your_rusty_garden_tools",
+      "model": "model_18"
+    },
+    "72": {
+      "task": "cook_a_frozen_pie",
+      "model": "model_08"
+    },
+    "73": {
+      "task": "organizing_school_stuff",
+      "model": "model_07"
+    },
+    "74": {
+      "task": "carrying_out_garden_furniture",
+      "model": "model_17"
+    },
+    "75": {
+      "task": "put_together_a_basic_pruning_kit",
+      "model": "model_24"
+    },
+    "76": {
+      "task": "dispose_of_glass",
+      "model": "model_00"
+    },
+    "77": {
+      "task": "installing_a_modem",
+      "model": "model_24"
+    },
+    "78": {
+      "task": "make_cabinet_doors",
+      "model": "model_19"
+    },
+    "79": {
+      "task": "polishing_shoes",
+      "model": "model_08"
+    },
+    "80": {
+      "task": "clean_up_broken_glass",
+      "model": "model_01"
+    },
+    "81": {
+      "task": "packing_meal_for_delivery",
+      "model": "model_18"
+    },
+    "82": {
+      "task": "store_batteries",
+      "model": "model_22"
+    },
+    "83": {
+      "task": "store_honey",
+      "model": "model_00"
+    },
+    "84": {
+      "task": "tidying_bathroom",
+      "model": "model_02"
+    },
+    "85": {
+      "task": "putting_dirty_dishes_in_sink",
+      "model": "model_06"
+    },
+    "86": {
+      "task": "make_gift_bags_for_baby_showers",
+      "model": "model_17"
+    },
+    "87": {
+      "task": "collecting_aluminum_cans",
+      "model": "model_00"
+    },
+    "88": {
+      "task": "rearrange_your_room",
+      "model": "model_18"
+    },
+    "89": {
+      "task": "installing_a_fax_machine",
+      "model": "model_01"
+    },
+    "90": {
+      "task": "composting_waste",
+      "model": "model_22"
+    },
+    "91": {
+      "task": "store_produce",
+      "model": "model_00"
+    },
+    "92": {
+      "task": "installing_a_scanner",
+      "model": "model_01"
+    },
+    "93": {
+      "task": "clean_a_keyboard",
+      "model": "model_03"
+    },
+    "94": {
+      "task": "dispose_of_batteries",
+      "model": "model_01"
+    },
+    "95": {
+      "task": "cook_brussels_sprouts",
+      "model": "model_19"
+    },
+    "96": {
+      "task": "cook_broccolini",
+      "model": "model_11"
+    },
+    "97": {
+      "task": "setup_a_bar_for_a_cocktail_party",
+      "model": "model_07"
+    },
+    "98": {
+      "task": "laying_tile_floors",
+      "model": "model_06"
+    },
+    "99": {
+      "task": "sorting_books_on_shelf",
+      "model": "model_21"
+    }
+  }
+}

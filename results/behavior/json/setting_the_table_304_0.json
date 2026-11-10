@@ -1,0 +1,25 @@
+{
+  "task": "setting_the_table",
+  "instance_id": 304,
+  "rollout_id": 0,
+  "steps": 26713,
+  "success": false,
+  "agent_distance": {
+    "base": 96.65676007090418,
+    "left": 161.45260476832118,
+    "right": 250.91851525063976
+  },
+  "normalized_agent_distance": {
+    "base": 0.5738150126210946,
+    "left": 0.23614298483885923,
+    "right": 0.1869403696779622
+  },
+  "q_score": {
+    "final": 0.5
+  },
+  "time": {
+    "simulator_steps": 26713,
+    "simulator_time": 890.4333333333333,
+    "normalized_time": 0.6666606146819901
+  }
+}

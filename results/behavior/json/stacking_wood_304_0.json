@@ -1,0 +1,25 @@
+{
+  "task": "stacking_wood",
+  "instance_id": 304,
+  "rollout_id": 0,
+  "steps": 9701,
+  "success": true,
+  "agent_distance": {
+    "base": 112.38924912007656,
+    "left": 136.1954203745081,
+    "right": 137.11568193603648
+  },
+  "normalized_agent_distance": {
+    "base": 0.7648818785874761,
+    "left": 0.15749354817524253,
+    "right": 0.15840274207389346
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 9701,
+    "simulator_time": 323.3666666666667,
+    "normalized_time": 1.6430615400474178
+  }
+}

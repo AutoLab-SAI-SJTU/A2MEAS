@@ -1,0 +1,25 @@
+{
+  "task": "clean_boxing_gloves",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 5550,
+  "success": true,
+  "agent_distance": {
+    "base": 12.45686452440846,
+    "left": 25.270803440220334,
+    "right": 28.24489114010794
+  },
+  "normalized_agent_distance": {
+    "base": 2.294477871537844,
+    "left": 0.4215299297942354,
+    "right": 0.3956255290406227
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 5550,
+    "simulator_time": 185.0,
+    "normalized_time": 1.4838486486486488
+  }
+}

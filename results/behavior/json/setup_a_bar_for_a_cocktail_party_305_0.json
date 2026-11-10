@@ -1,0 +1,25 @@
+{
+  "task": "setup_a_bar_for_a_cocktail_party",
+  "instance_id": 305,
+  "rollout_id": 0,
+  "steps": 20129,
+  "success": false,
+  "agent_distance": {
+    "base": 52.152849389417284,
+    "left": 100.64286873759204,
+    "right": 125.7020032585367
+  },
+  "normalized_agent_distance": {
+    "base": 0.4373126352062358,
+    "left": 0.20446654848098228,
+    "right": 0.23457541833564613
+  },
+  "q_score": {
+    "final": 0.8
+  },
+  "time": {
+    "simulator_steps": 20129,
+    "simulator_time": 670.9666666666667,
+    "normalized_time": 0.6666448904565553
+  }
+}

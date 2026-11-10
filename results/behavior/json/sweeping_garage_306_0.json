@@ -1,0 +1,25 @@
+{
+  "task": "sweeping_garage",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 6710,
+  "success": false,
+  "agent_distance": {
+    "base": 63.630865978267366,
+    "left": 83.32374124490161,
+    "right": 86.20177139337466
+  },
+  "normalized_agent_distance": {
+    "base": 0.29979947163559634,
+    "left": 0.051991184448466794,
+    "right": 0.05150822225842635
+  },
+  "q_score": {
+    "final": 0.5
+  },
+  "time": {
+    "simulator_steps": 6710,
+    "simulator_time": 223.66666666666666,
+    "normalized_time": 0.6666214605067063
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "rearranging_kitchen_furniture",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 3937,
+  "success": true,
+  "agent_distance": {
+    "base": 17.498824219194887,
+    "left": 34.61624634408258,
+    "right": 34.970721310293015
+  },
+  "normalized_agent_distance": {
+    "base": 1.4795222625072568,
+    "left": 0.4196324423974739,
+    "right": 0.4679914907898384
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 3937,
+    "simulator_time": 131.23333333333332,
+    "normalized_time": 2.271530353060706
+  }
+}

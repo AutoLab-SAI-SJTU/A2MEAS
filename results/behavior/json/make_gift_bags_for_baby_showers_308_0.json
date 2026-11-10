@@ -1,0 +1,25 @@
+{
+  "task": "make_gift_bags_for_baby_showers",
+  "instance_id": 308,
+  "rollout_id": 0,
+  "steps": 14477,
+  "success": false,
+  "agent_distance": {
+    "base": 32.00931795227208,
+    "left": 69.36077212508872,
+    "right": 82.32370618666027
+  },
+  "normalized_agent_distance": {
+    "base": 0.5245472591773294,
+    "left": 0.2641752598566039,
+    "right": 0.2618856827353757
+  },
+  "q_score": {
+    "final": 0.3333333333333333
+  },
+  "time": {
+    "simulator_steps": 14477,
+    "simulator_time": 482.56666666666666,
+    "normalized_time": 0.6666381156316916
+  }
+}

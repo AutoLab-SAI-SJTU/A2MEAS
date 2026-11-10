@@ -1,0 +1,25 @@
+{
+  "task": "cook_hot_dogs",
+  "instance_id": 301,
+  "rollout_id": 0,
+  "steps": 5154,
+  "success": true,
+  "agent_distance": {
+    "base": 18.289449401941816,
+    "left": 37.23132986299606,
+    "right": 35.6980150135696
+  },
+  "normalized_agent_distance": {
+    "base": 1.409676116180002,
+    "left": 0.39862127016715987,
+    "right": 0.4633590969613409
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 5154,
+    "simulator_time": 171.8,
+    "normalized_time": 1.7743218859138532
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "chop_an_onion",
+  "instance_id": 309,
+  "rollout_id": 0,
+  "steps": 9600,
+  "success": false,
+  "agent_distance": {
+    "base": 14.670245538076067,
+    "left": 28.46921056251449,
+    "right": 33.93344713222177
+  },
+  "normalized_agent_distance": {
+    "base": 1.1586854463943235,
+    "left": 0.22363458185886811,
+    "right": 0.32563446787307027
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 9600,
+    "simulator_time": 320.0,
+    "normalized_time": 0.6666458333333334
+  }
+}

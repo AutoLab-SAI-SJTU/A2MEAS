@@ -1,0 +1,28 @@
+{
+  "name": "policy_postprocessor",
+  "steps": [
+    {
+      "registry_name": "unnormalizer_processor",
+      "config": {
+        "features": {
+          "action": {
+            "type": "ACTION",
+            "shape": [
+              23
+            ]
+          }
+        },
+        "norm_map": {
+          "ACTION": "QUANTILES"
+        }
+      },
+      "state_file": "action_stats.safetensors"
+    },
+    {
+      "registry_name": "device_processor",
+      "config": {
+        "device": "cpu"
+      }
+    }
+  ]
+}

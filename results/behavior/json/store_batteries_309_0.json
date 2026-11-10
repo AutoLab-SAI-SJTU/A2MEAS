@@ -1,0 +1,25 @@
+{
+  "task": "store_batteries",
+  "instance_id": 309,
+  "rollout_id": 0,
+  "steps": 3244,
+  "success": true,
+  "agent_distance": {
+    "base": 10.727601102734347,
+    "left": 25.348811864116215,
+    "right": 27.633826217104797
+  },
+  "normalized_agent_distance": {
+    "base": 1.3196240114103133,
+    "left": 0.5079212417930379,
+    "right": 0.5967468952885274
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 3244,
+    "simulator_time": 108.13333333333333,
+    "normalized_time": 2.3749183107274967
+  }
+}

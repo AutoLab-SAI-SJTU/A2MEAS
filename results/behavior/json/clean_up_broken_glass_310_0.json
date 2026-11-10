@@ -1,0 +1,25 @@
+{
+  "task": "clean_up_broken_glass",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 13038,
+  "success": false,
+  "agent_distance": {
+    "base": 167.46668007829686,
+    "left": 194.58461821323,
+    "right": 188.45030959660653
+  },
+  "normalized_agent_distance": {
+    "base": 0.17385786824213315,
+    "left": 0.0752906377417036,
+    "right": 0.07167671960271077
+  },
+  "q_score": {
+    "final": 0.6666666666666666
+  },
+  "time": {
+    "simulator_steps": 13038,
+    "simulator_time": 434.59999999999997,
+    "normalized_time": 0.6666217978217519
+  }
+}

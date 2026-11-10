@@ -1,0 +1,110 @@
+{
+  "repo_id": "shibohuang/policy-weights",
+  "revision": "9d27ec2109a05aa3fe15c5678069ea3483be1a80",
+  "files": {
+    "weights/index.json": {
+      "bytes": 9993907,
+      "sha256": "693ce8b0e970438a5261087581175d7ef8d6997904a8e2787f04b598da02eb52"
+    },
+    "weights/m00.bin": {
+      "bytes": 2512952727,
+      "sha256": "c6b5a2a99587617c66b641f179997a8a0ee4674d50b66b3ba97941b58a929b12"
+    },
+    "weights/m01.bin": {
+      "bytes": 2539650133,
+      "sha256": "eaa76dc11e46b6efd20c180ac073f377d06c76710f939727d620a2d47ce6f3d8"
+    },
+    "weights/m02.bin": {
+      "bytes": 2658588888,
+      "sha256": "572a47ba1806c3afe8cc8dc97d4b053421405f1b85c49c7a33bba7282409a782"
+    },
+    "weights/m03.bin": {
+      "bytes": 2667943412,
+      "sha256": "4b2f82d835964c23cef5ea2c7561777df50e1c9da1174cc62e1d3ceb347b02b4"
+    },
+    "weights/m04.bin": {
+      "bytes": 2530589652,
+      "sha256": "cfe70595a7b0e2af25ccb12ca3e171d2e2573995b8ed2ee0f8e8d2a65225d45a"
+    },
+    "weights/m05.bin": {
+      "bytes": 2670026546,
+      "sha256": "e9e8c167c7b7371bb6445c46a75049955a60cbb22f740c218fb22e48d3b23a9a"
+    },
+    "weights/m06.bin": {
+      "bytes": 4629763315,
+      "sha256": "f0fcd362b3d434cefda4cf4a35252659c722b97edfd6e85518099ddb46825121"
+    },
+    "weights/m07.bin": {
+      "bytes": 2666659819,
+      "sha256": "762c3de7e66d48d8edfffb2411434639267f70c02454b212cd5aa9b42b4e0814"
+    },
+    "weights/m08.bin": {
+      "bytes": 2669754683,
+      "sha256": "e1c7a8a68f3fd461a2d313225b75cc92f66584421de1de486b1da6f082b1beba"
+    },
+    "weights/m09.bin": {
+      "bytes": 2668621366,
+      "sha256": "03fd15cf2453027470f8a5833a5666085212a205ff7b556fce93623dc89daa36"
+    },
+    "weights/m10.bin": {
+      "bytes": 2579332192,
+      "sha256": "d756186a678ee99e01ac740c5a3b5d127c298f06ef89fa7290016a176e520f10"
+    },
+    "weights/m11.bin": {
+      "bytes": 2674703205,
+      "sha256": "c46cbf0572b5f9e16e8e48b00d489fdbdcf9f295e72c3b9df242746ad65381df"
+    },
+    "weights/m12.bin": {
+      "bytes": 2661068793,
+      "sha256": "7a1a61dd339543c156371096acab355c3f774cef835ea4316cee2e2931b4b4b4"
+    },
+    "weights/m13.bin": {
+      "bytes": 2553656639,
+      "sha256": "a57e888776cb93774ac905e690bff5d739981f734a97ccdbaf2c370bb9b23065"
+    },
+    "weights/m14.bin": {
+      "bytes": 2667670063,
+      "sha256": "19b2046bdbcf140ccfc91e023662f8ecb6be780235db418be16aec07fcdcceaa"
+    },
+    "weights/m15.bin": {
+      "bytes": 2666771842,
+      "sha256": "d9b1d76b573a8f59f1e9dc65b82dfa2cd1c0684eb66ee56801616c92b10e5c55"
+    },
+    "weights/m16.bin": {
+      "bytes": 2634414918,
+      "sha256": "739d028d73d0f82db96970434bd1d30a21baa62a2d713ed3534e421fc023c656"
+    },
+    "weights/m18.bin": {
+      "bytes": 2623165422,
+      "sha256": "cfb983dfc15c25b2826b428a07b2beec6eef53576c30ba06cd661fe5041885d2"
+    },
+    "weights/m19.bin": {
+      "bytes": 2526799611,
+      "sha256": "3806271c924159f6f83ec6df21452816f7596c569821a5c4e828a735697062a4"
+    },
+    "weights/m20.bin": {
+      "bytes": 2875352276,
+      "sha256": "148568229e1974cd5c002ee570ab360384eb6c6abf3cce97ae211475ba890d12"
+    },
+    "weights/m21.bin": {
+      "bytes": 2805699364,
+      "sha256": "7b70540fa3c3bf94dee28eee83bc3e9fccdabe7ac151ac38a1253dd9c33091d1"
+    },
+    "weights/m22.bin": {
+      "bytes": 2805046049,
+      "sha256": "13e7f477c06727ea4f6e5eef1ac6a2c772c91765805300b55cb9b15b015ec4cb"
+    },
+    "weights/m23.bin": {
+      "bytes": 2804022634,
+      "sha256": "c95a5955788de0247260a948250161981d57c417991e39f08edec7ca3e7e3ff4"
+    },
+    "weights/m25.bin": {
+      "bytes": 2801471299,
+      "sha256": "bdb76c1d75539eba4083f7c0fbf8f57c4ab24fcb037aa339f371ebf3b347aa6b"
+    },
+    "weights/m26.bin": {
+      "bytes": 2796133679,
+      "sha256": "a6df2dd0d58583fca41d0faf99e0a4b9a75abd4e03dd822b6be25ca6df5b521c"
+    }
+  }
+}

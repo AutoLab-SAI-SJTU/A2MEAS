@@ -1,0 +1,25 @@
+{
+  "task": "bringing_water",
+  "instance_id": 305,
+  "rollout_id": 0,
+  "steps": 4763,
+  "success": true,
+  "agent_distance": {
+    "base": 21.341552725930264,
+    "left": 36.567287001038494,
+    "right": 35.70222528602244
+  },
+  "normalized_agent_distance": {
+    "base": 1.2299714241553998,
+    "left": 0.2558953853955382,
+    "right": 0.30961095313931614
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 4763,
+    "simulator_time": 158.76666666666665,
+    "normalized_time": 1.9816386731051858
+  }
+}

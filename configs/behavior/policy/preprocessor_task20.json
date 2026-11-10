@@ -1,0 +1,61 @@
+{
+  "name": "policy_preprocessor",
+  "steps": [
+    {
+      "registry_name": "to_batch_processor",
+      "config": {}
+    },
+    {
+      "registry_name": "normalizer_processor",
+      "config": {
+        "features": {
+          "observation.state": {
+            "type": "STATE",
+            "shape": [
+              23
+            ]
+          },
+          "observation.rgb.left_realsense_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          },
+          "observation.rgb.right_realsense_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          },
+          "observation.rgb.zed_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          }
+        },
+        "norm_map": {
+          "STATE": "QUANTILES",
+          "VISUAL": "IDENTITY"
+        }
+      },
+      "state_file": "observation_stats.safetensors"
+    },
+    {
+      "registry_name": "pi05_prepare_state_tokenizer_processor_step",
+      "config": {}
+    },
+    {
+      "registry_name": "device_processor",
+      "config": {
+        "device": "cuda"
+      }
+    }
+  ]
+}

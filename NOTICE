@@ -1,0 +1,22 @@
+A2MEAS
+Copyright 2026 Anyverse authors
+
+A²-MEAS evaluation source, documentation, project reference seed/instruction
+lists and project modifications to the reference simulator are licensed under
+the Apache License, Version 2.0.
+
+This release contains inference and evaluation code only. Training code is
+not included. Project inference weights are distributed separately under
+Apache-2.0 in the model repository. Third-party models, credentials, datasets and
+external simulator assets are not covered by this source-code license.
+
+The BEHAVIOR SDK evaluation patch is derived from the MIT-licensed BEHAVIOR-1K
+SDK, copyright 2023 Stanford Vision and Learning Group; see
+third_party/behavior/license.txt.
+
+The installer applies local lifecycle fixes to the installed Isaac Sim 5.1
+extensions: per-process scripting caches, property-window callbacks and startup
+logging. These NVIDIA components retain their original terms and notices.
+
+Third-party source retains its original copyright and license notices.
+See README.md and licenses/ for the applicable notices and licenses.

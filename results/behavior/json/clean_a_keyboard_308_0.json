@@ -1,0 +1,25 @@
+{
+  "task": "clean_a_keyboard",
+  "instance_id": 308,
+  "rollout_id": 0,
+  "steps": 5815,
+  "success": false,
+  "agent_distance": {
+    "base": 11.327034852369735,
+    "left": 32.14123048554143,
+    "right": 38.123416474850046
+  },
+  "normalized_agent_distance": {
+    "base": 0.3936864376352711,
+    "left": 0.09947658977892242,
+    "right": 0.25513453146090986
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 5815,
+    "simulator_time": 193.83333333333334,
+    "normalized_time": 0.6665631986242476
+  }
+}

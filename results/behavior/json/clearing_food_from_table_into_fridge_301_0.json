@@ -1,0 +1,25 @@
+{
+  "task": "clearing_food_from_table_into_fridge",
+  "instance_id": 301,
+  "rollout_id": 0,
+  "steps": 11731,
+  "success": true,
+  "agent_distance": {
+    "base": 59.14204374350367,
+    "left": 104.00482917584304,
+    "right": 103.44195412287445
+  },
+  "normalized_agent_distance": {
+    "base": 0.5382177886521962,
+    "left": 0.15139873912371496,
+    "right": 0.1634307872791975
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 11731,
+    "simulator_time": 391.0333333333333,
+    "normalized_time": 1.1139851675049015
+  }
+}

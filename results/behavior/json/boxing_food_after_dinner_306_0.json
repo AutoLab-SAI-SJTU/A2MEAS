@@ -1,0 +1,25 @@
+{
+  "task": "boxing_food_after_dinner",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 10047,
+  "success": false,
+  "agent_distance": {
+    "base": 36.56628723755548,
+    "left": 67.83503118680059,
+    "right": 85.69622581245054
+  },
+  "normalized_agent_distance": {
+    "base": 0.44059162734611385,
+    "left": 0.1645550949812496,
+    "right": 0.2065551876081371
+  },
+  "q_score": {
+    "final": 0.16666666666666666
+  },
+  "time": {
+    "simulator_steps": 10047,
+    "simulator_time": 334.9,
+    "normalized_time": 0.6666382999900468
+  }
+}

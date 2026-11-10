@@ -1,0 +1,25 @@
+{
+  "task": "cook_a_frozen_pie",
+  "instance_id": 308,
+  "rollout_id": 0,
+  "steps": 13002,
+  "success": false,
+  "agent_distance": {
+    "base": 28.213168449789737,
+    "left": 45.78631311544611,
+    "right": 91.81318090598205
+  },
+  "normalized_agent_distance": {
+    "base": 0.6732281783169077,
+    "left": 0.31655748222082586,
+    "right": 0.2117822278689084
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 13002,
+    "simulator_time": 433.4,
+    "normalized_time": 0.6666635902168896
+  }
+}

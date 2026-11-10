@@ -1,0 +1,25 @@
+{
+  "task": "organizing_art_supplies",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 9292,
+  "success": false,
+  "agent_distance": {
+    "base": 13.08637672404457,
+    "left": 52.78436561604332,
+    "right": 54.641477723643376
+  },
+  "normalized_agent_distance": {
+    "base": 0.8793801556129499,
+    "left": 0.23283409503105912,
+    "right": 0.2261395649381074
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 9292,
+    "simulator_time": 309.73333333333335,
+    "normalized_time": 0.6666342014636246
+  }
+}

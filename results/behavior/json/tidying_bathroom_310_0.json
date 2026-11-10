@@ -1,0 +1,25 @@
+{
+  "task": "tidying_bathroom",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 19505,
+  "success": false,
+  "agent_distance": {
+    "base": 33.035452910615824,
+    "left": 87.57187974805697,
+    "right": 85.60891351426704
+  },
+  "normalized_agent_distance": {
+    "base": 0.5755029316970727,
+    "left": 0.22179151636208821,
+    "right": 0.24001355882849412
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 19505,
+    "simulator_time": 650.1666666666666,
+    "normalized_time": 0.6666572673673417
+  }
+}

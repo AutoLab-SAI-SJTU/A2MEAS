@@ -1,0 +1,25 @@
+{
+  "task": "hanging_pictures",
+  "instance_id": 309,
+  "rollout_id": 0,
+  "steps": 1678,
+  "success": true,
+  "agent_distance": {
+    "base": 5.62131801721128,
+    "left": 8.265452082829142,
+    "right": 10.923979495448293
+  },
+  "normalized_agent_distance": {
+    "base": 1.1795276445308411,
+    "left": 0.28655419888288763,
+    "right": 0.3608575063366347
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 1678,
+    "simulator_time": 55.93333333333333,
+    "normalized_time": 1.4227741358760428
+  }
+}

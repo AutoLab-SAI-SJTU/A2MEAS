@@ -1,0 +1,25 @@
+{
+  "task": "polishing_shoes",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 16107,
+  "success": false,
+  "agent_distance": {
+    "base": 67.05004625574973,
+    "left": 107.83117106308964,
+    "right": 107.69029354083614
+  },
+  "normalized_agent_distance": {
+    "base": 0.2558984066104004,
+    "left": 0.18637653474283028,
+    "right": 0.19606409552587487
+  },
+  "q_score": {
+    "final": 0.5
+  },
+  "time": {
+    "simulator_steps": 16107,
+    "simulator_time": 536.9,
+    "normalized_time": 0.666665735394549
+  }
+}

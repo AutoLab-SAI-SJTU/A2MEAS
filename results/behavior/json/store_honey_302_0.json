@@ -1,0 +1,25 @@
+{
+  "task": "store_honey",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 2838,
+  "success": true,
+  "agent_distance": {
+    "base": 12.432750580641013,
+    "left": 21.117599193810747,
+    "right": 23.993305600310123
+  },
+  "normalized_agent_distance": {
+    "base": 0.9711044970852708,
+    "left": 0.357872120340979,
+    "right": 0.6387114912503729
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 2838,
+    "simulator_time": 94.6,
+    "normalized_time": 2.384369274136716
+  }
+}

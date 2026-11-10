@@ -1,0 +1,25 @@
+{
+  "task": "organizing_school_stuff",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 21888,
+  "success": false,
+  "agent_distance": {
+    "base": 103.63050102604643,
+    "left": 157.61067418124094,
+    "right": 161.56006929291698
+  },
+  "normalized_agent_distance": {
+    "base": 0.2524198931878691,
+    "left": 0.15382587585483234,
+    "right": 0.17089495022400594
+  },
+  "q_score": {
+    "final": 0.6666666666666666
+  },
+  "time": {
+    "simulator_steps": 21888,
+    "simulator_time": 729.6,
+    "normalized_time": 0.6666620979532164
+  }
+}

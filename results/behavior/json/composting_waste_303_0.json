@@ -1,0 +1,25 @@
+{
+  "task": "composting_waste",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 1924,
+  "success": true,
+  "agent_distance": {
+    "base": 5.606909863425173,
+    "left": 14.450456501348526,
+    "right": 11.089206077631388
+  },
+  "normalized_agent_distance": {
+    "base": 1.1477266724007646,
+    "left": 0.7302191456038278,
+    "right": 0.40082220213815273
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 1924,
+    "simulator_time": 64.13333333333333,
+    "normalized_time": 1.8911746361746362
+  }
+}

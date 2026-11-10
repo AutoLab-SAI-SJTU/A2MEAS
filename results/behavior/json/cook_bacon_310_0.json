@@ -1,0 +1,25 @@
+{
+  "task": "cook_bacon",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 11520,
+  "success": false,
+  "agent_distance": {
+    "base": 20.23085772342391,
+    "left": 85.47924478865767,
+    "right": 41.402102050579515
+  },
+  "normalized_agent_distance": {
+    "base": 1.0339008007446961,
+    "left": 0.0959659858984678,
+    "right": 0.2719644521006245
+  },
+  "q_score": {
+    "final": 0.7142857142857143
+  },
+  "time": {
+    "simulator_steps": 11520,
+    "simulator_time": 384.0,
+    "normalized_time": 0.666627170138889
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "task": "setting_mousetraps",
+  "instance_id": 301,
+  "rollout_id": 0,
+  "steps": 9989,
+  "success": true,
+  "agent_distance": {
+    "base": 8.910351660010633,
+    "left": 35.83845681202365,
+    "right": 37.115817622634495
+  },
+  "normalized_agent_distance": {
+    "base": 3.5465042464959557,
+    "left": 0.36704705420203126,
+    "right": 0.33349932165986856
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 9989,
+    "simulator_time": 332.96666666666664,
+    "normalized_time": 1.0207338071879068
+  }
+}

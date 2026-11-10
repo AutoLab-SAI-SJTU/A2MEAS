@@ -1,0 +1,17 @@
+RoboTwin evaluation reference SDK
+
+Original source: RoboTwin-Platform/RoboTwin, revision
+c3ddfa8b97d5519efa828b075999bd0006778e5e.
+Copyright (c) 2025 Tianxing Chen. Original source is licensed under MIT (LICENSE).
+
+Copyright 2026 Anyverse authors. Anyverse evaluation modifications to
+this SDK are licensed under Apache-2.0 (license_apache.txt).
+
+This SDK supports the 50-task cached joint-position evaluation protocol.
+Model training code, demonstration datasets and robot/object/texture assets
+are not included. Obtain simulator assets from their official source.
+
+This evaluation subset removes expert demonstration rollouts, data conversion
+and unused CuRobo planning. Joint-position startup and gripper interpolation
+are provided directly by the SDK. Scene creation, observation, action stepping,
+success predicates and rendering parameters retain the evaluated behavior.

@@ -1,0 +1,25 @@
+{
+  "task": "store_produce",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 14202,
+  "success": true,
+  "agent_distance": {
+    "base": 114.33432608441109,
+    "left": 146.73242352910165,
+    "right": 155.571287183074
+  },
+  "normalized_agent_distance": {
+    "base": 0.23203617766036047,
+    "left": 0.12923864776375715,
+    "right": 0.14529416326934685
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 14202,
+    "simulator_time": 473.4,
+    "normalized_time": 0.670493944514857
+  }
+}

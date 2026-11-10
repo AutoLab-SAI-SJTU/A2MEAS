@@ -1,0 +1,25 @@
+{
+  "task": "clean_your_rusty_garden_tools",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 18208,
+  "success": true,
+  "agent_distance": {
+    "base": 139.81824229903043,
+    "left": 198.3189050543042,
+    "right": 199.56419251375337
+  },
+  "normalized_agent_distance": {
+    "base": 0.49048678393002193,
+    "left": 0.11727878385387047,
+    "right": 0.12496680735087927
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 18208,
+    "simulator_time": 606.9333333333333,
+    "normalized_time": 0.832486269771529
+  }
+}

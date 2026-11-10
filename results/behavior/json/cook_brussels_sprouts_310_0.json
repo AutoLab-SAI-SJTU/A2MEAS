@@ -1,0 +1,25 @@
+{
+  "task": "cook_brussels_sprouts",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 23493,
+  "success": false,
+  "agent_distance": {
+    "base": 113.13677187614337,
+    "left": 202.53913046809262,
+    "right": 191.8925034640455
+  },
+  "normalized_agent_distance": {
+    "base": 0.30820218238304414,
+    "left": 0.17838083888531192,
+    "right": 0.14063186165610866
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 23493,
+    "simulator_time": 783.1,
+    "normalized_time": 0.6666568765164091
+  }
+}

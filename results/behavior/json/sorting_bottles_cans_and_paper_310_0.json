@@ -1,0 +1,25 @@
+{
+  "task": "sorting_bottles_cans_and_paper",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 15396,
+  "success": false,
+  "agent_distance": {
+    "base": 53.59046306928695,
+    "left": 91.08319778455916,
+    "right": 102.00877712107649
+  },
+  "normalized_agent_distance": {
+    "base": 0.49929219617687515,
+    "left": 0.24554913028966452,
+    "right": 0.22998217077099714
+  },
+  "q_score": {
+    "final": 0.125
+  },
+  "time": {
+    "simulator_steps": 15396,
+    "simulator_time": 513.2,
+    "normalized_time": 0.6666559495972979
+  }
+}

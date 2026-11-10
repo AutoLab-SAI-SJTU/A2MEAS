@@ -1,0 +1,25 @@
+{
+  "task": "clean_a_trumpet",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 7961,
+  "success": false,
+  "agent_distance": {
+    "base": 16.904715155263602,
+    "left": 58.72638076107978,
+    "right": 62.347929873269095
+  },
+  "normalized_agent_distance": {
+    "base": 0.7326535754223343,
+    "left": 0.13038263044254417,
+    "right": 0.18443435128276967
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 7961,
+    "simulator_time": 265.3666666666667,
+    "normalized_time": 0.6666448938575555
+  }
+}

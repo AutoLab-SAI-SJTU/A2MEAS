@@ -1,0 +1,10 @@
+A2MEAS RoboTwin evaluation episode lists
+Copyright 2026 Anyverse authors
+
+Project reference seed/instruction lists are licensed under Apache-2.0 (license_apache.txt).
+Task instructions derived from RoboTwin retain its original MIT license and
+copyright notice (license_mit.txt).
+
+The 100 JSON files specify 100 expert-valid episodes for each of 50 tasks in
+demo_clean and demo_randomized. These are evaluation inputs, not recorded
+demonstrations, training datasets, model weights or evaluation results.

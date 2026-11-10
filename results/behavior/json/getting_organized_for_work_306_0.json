@@ -1,0 +1,25 @@
+{
+  "task": "getting_organized_for_work",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 23507,
+  "success": false,
+  "agent_distance": {
+    "base": 55.76250088441634,
+    "left": 80.1399245231587,
+    "right": 98.81304376291882
+  },
+  "normalized_agent_distance": {
+    "base": 0.8490167989081492,
+    "left": 0.21550182512349705,
+    "right": 0.2691274247538113
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 23507,
+    "simulator_time": 783.5666666666666,
+    "normalized_time": 0.6666529118985834
+  }
+}

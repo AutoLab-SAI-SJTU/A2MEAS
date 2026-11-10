@@ -1,0 +1,24 @@
+{
+  "camera_order": [
+    "observation.rgb.zed_link_camera_0",
+    "observation.rgb.left_realsense_link_camera_0",
+    "observation.rgb.right_realsense_link_camera_0"
+  ],
+  "dim": 1024,
+  "num_heads": 16,
+  "ffn_expansion_factor": 4,
+  "dec_layers": 12,
+  "code_dim": 32,
+  "num_queries": 1,
+  "num_embodiments": 32,
+  "image_hw": [
+    256,
+    256
+  ],
+  "patch_size": 16,
+  "latent_layer_to_use": -2,
+  "norm_latents": true,
+  "norm_latents_type": "ln",
+  "decoder_multi_view": true,
+  "decoder_last_ln": true
+}

@@ -1,0 +1,25 @@
+{
+  "task": "setting_the_fire",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 13678,
+  "success": false,
+  "agent_distance": {
+    "base": 95.86053318704242,
+    "left": 136.19801381504294,
+    "right": 163.56492740398608
+  },
+  "normalized_agent_distance": {
+    "base": 0.3317809628488388,
+    "left": 0.0837280932414044,
+    "right": 0.07915877936362821
+  },
+  "q_score": {
+    "final": 0.5
+  },
+  "time": {
+    "simulator_steps": 13678,
+    "simulator_time": 455.93333333333334,
+    "normalized_time": 0.6666274309109519
+  }
+}

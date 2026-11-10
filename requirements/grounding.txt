@@ -1,0 +1,9 @@
+-r model.txt
+sam3 @ https://codeload.github.com/facebookresearch/sam3/tar.gz/7f473cfd983d5eb43040ff608f66bff0d7bdcb53#sha256=ab79828ce10d3edd5507d87019a5b081d596d265f44d1482717e451d7f9a76d2
+einops==0.8.1
+ftfy==6.1.1
+iopath==0.1.10
+pycocotools==2.0.11
+psutil==7.2.2
+setuptools==80.9.0
+timm==1.0.22

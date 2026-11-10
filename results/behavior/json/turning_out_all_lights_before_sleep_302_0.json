@@ -1,0 +1,25 @@
+{
+  "task": "turning_out_all_lights_before_sleep",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 15010,
+  "success": false,
+  "agent_distance": {
+    "base": 67.80752994691666,
+    "left": 122.899606551744,
+    "right": 131.19868752546972
+  },
+  "normalized_agent_distance": {
+    "base": 0.5935756697155755,
+    "left": 0.13473680237558922,
+    "right": 0.1293839162583439
+  },
+  "q_score": {
+    "final": 0.8
+  },
+  "time": {
+    "simulator_steps": 15010,
+    "simulator_time": 500.3333333333333,
+    "normalized_time": 0.6666295802798134
+  }
+}

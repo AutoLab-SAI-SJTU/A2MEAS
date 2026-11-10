@@ -1,0 +1,25 @@
+{
+  "task": "bringing_in_wood",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 20304,
+  "success": false,
+  "agent_distance": {
+    "base": 276.7545207994331,
+    "left": 307.5044513431524,
+    "right": 317.35808430420803
+  },
+  "normalized_agent_distance": {
+    "base": 0.13145440188261784,
+    "left": 0.04731736381846041,
+    "right": 0.053476186173761105
+  },
+  "q_score": {
+    "final": 0.6666666666666666
+  },
+  "time": {
+    "simulator_steps": 20304,
+    "simulator_time": 676.8,
+    "normalized_time": 0.6666496749408983
+  }
+}

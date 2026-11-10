@@ -1,0 +1,25 @@
+{
+  "task": "laying_tile_floors",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 21527,
+  "success": false,
+  "agent_distance": {
+    "base": 158.23270341689042,
+    "left": 200.15037541646961,
+    "right": 199.97021471454718
+  },
+  "normalized_agent_distance": {
+    "base": 0.4097958171716251,
+    "left": 0.11251790036935835,
+    "right": 0.10669588983767728
+  },
+  "q_score": {
+    "final": 0.875
+  },
+  "time": {
+    "simulator_steps": 21527,
+    "simulator_time": 717.5666666666666,
+    "normalized_time": 0.6666493241046128
+  }
+}

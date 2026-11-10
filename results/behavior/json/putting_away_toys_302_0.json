@@ -1,0 +1,25 @@
+{
+  "task": "putting_away_toys",
+  "instance_id": 302,
+  "rollout_id": 0,
+  "steps": 6761,
+  "success": true,
+  "agent_distance": {
+    "base": 51.73151188331116,
+    "left": 85.9261895160447,
+    "right": 84.53885279188259
+  },
+  "normalized_agent_distance": {
+    "base": 0.6794079415130825,
+    "left": 0.3336666057401093,
+    "right": 0.33589407783786
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 6761,
+    "simulator_time": 225.36666666666667,
+    "normalized_time": 1.6708704333678448
+  }
+}

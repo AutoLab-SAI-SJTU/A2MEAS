@@ -1,0 +1,805 @@
+{
+  "version": 1,
+  "enabled": true,
+  "defaults": {
+    "execution_chunk_size": 40
+  },
+  "tasks": {
+    "hanging_mug": {
+      "kind": "mug",
+      "max_steps": 900,
+      "mode": "align",
+      "thread_motion": "vertical",
+      "trigger": [
+        240,
+        288,
+        8
+      ],
+      "parameters": {
+        "tracking": {
+          "minimum_motion_ratio": 0.55,
+          "maximum_motion_ratio": 1.65,
+          "minimum_motion_cosine": 0.8,
+          "minimum_patch_correlation": 0.6,
+          "max_rgb_prior_height_delta": 0.025,
+          "minimum_tracked_patch_contrast": 20.0
+        },
+        "hook_prior": {
+          "hook_height_median": 0.933661845824574,
+          "branch_axis_median": [
+            -0.28639087765625754,
+            -0.6316138309668776,
+            0.7204472456235942
+          ],
+          "hook_y_range": [
+            0.0394693379077996,
+            0.18113055615905588
+          ]
+        }
+      },
+      "execution_chunk_size": 40,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true,
+      "consistent_hook_relocalization": true,
+      "observe_before_close": true
+    },
+    "turn_switch": {
+      "kind": "contact",
+      "max_steps": 400,
+      "command_frame_enabled": true,
+      "offsets": [
+        [
+          0.0,
+          -0.025,
+          0.0
+        ],
+        [
+          0.0,
+          -0.025,
+          0.015
+        ],
+        [
+          0.0,
+          0.025,
+          0.015
+        ],
+        [
+          0.0,
+          -0.025,
+          0.015
+        ],
+        [
+          0.0,
+          -0.025,
+          0.03
+        ],
+        [
+          0.0,
+          0.025,
+          0.03
+        ],
+        [
+          0.0,
+          -0.025,
+          0.03
+        ],
+        [
+          0.012,
+          -0.025,
+          0.015
+        ],
+        [
+          0.012,
+          0.025,
+          0.015
+        ],
+        [
+          -0.012,
+          -0.025,
+          0.015
+        ],
+        [
+          -0.012,
+          0.025,
+          0.015
+        ],
+        [
+          0.0,
+          -0.025,
+          0.0
+        ]
+      ],
+      "trigger": [
+        160,
+        224,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "activation_threshold": 0.5,
+      "gripper_threshold": 0.2,
+      "joint_increment": 0.025,
+      "minimum_move_steps": 12,
+      "maximum_move_steps": 60,
+      "hold_steps": 6,
+      "parameters": {},
+      "execution_chunk_size": 40
+    },
+    "place_a2b_left": {
+      "kind": "placement",
+      "max_steps": 400,
+      "trigger": [
+        160,
+        208,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.3,
+      "require_open": false,
+      "clear_outward": 0.06,
+      "clear_up": 0.05,
+      "clear_hold": 12,
+      "placement_gap": 0.09,
+      "parameters": {
+        "grasp_heights": {
+          "class_heights": {
+            "toy car": {
+              "median": 0.7660683065170392
+            },
+            "soap": {
+              "median": 0.7483273706088274
+            },
+            "Rubik cube": {
+              "median": 0.7504514437665428
+            },
+            "smartphone": {
+              "median": 0.7411812819851851
+            },
+            "computer mouse": {
+              "median": 0.7396578504114957
+            },
+            "box": {
+              "median": 0.7874334620524114
+            },
+            "black box": {
+              "median": 0.7316969917249342
+            },
+            "stapler": {
+              "median": 0.7423131469596367
+            },
+            "coffee box": {
+              "median": 0.7772750827872973
+            },
+            "tea box": {
+              "median": 0.761393515938482
+            },
+            "card box": {
+              "median": 0.7316969917249342
+            }
+          },
+          "default_height": 0.7421443406805539
+        }
+      },
+      "budget_contact_compaction": true,
+      "execution_chunk_size": 40,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "place_a2b_right": {
+      "kind": "placement",
+      "max_steps": 400,
+      "trigger": [
+        160,
+        208,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "require_open": true,
+      "clear_outward": 0.0,
+      "clear_up": 0.08,
+      "clear_hold": 10,
+      "placement_gap": 0.09,
+      "parameters": {
+        "grasp_heights": {
+          "class_heights": {
+            "toy car": {
+              "median": 0.7660683065170392
+            },
+            "soap": {
+              "median": 0.7483273706088274
+            },
+            "Rubik cube": {
+              "median": 0.7504514437665428
+            },
+            "smartphone": {
+              "median": 0.7411812819851851
+            },
+            "computer mouse": {
+              "median": 0.7396578504114957
+            },
+            "box": {
+              "median": 0.7874334620524114
+            },
+            "black box": {
+              "median": 0.7316969917249342
+            },
+            "stapler": {
+              "median": 0.7423131469596367
+            },
+            "coffee box": {
+              "median": 0.7772750827872973
+            },
+            "tea box": {
+              "median": 0.761393515938482
+            },
+            "card box": {
+              "median": 0.7316969917249342
+            }
+          },
+          "default_height": 0.7421443406805539
+        }
+      },
+      "execution_chunk_size": 40,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true,
+      "observe_before_close": true
+    },
+    "blocks_ranking_size": {
+      "kind": "ranking",
+      "execution_chunk_size": 40,
+      "max_steps": 1200,
+      "parameters": {
+        "ranking_geometry": {
+          "rank_heights": {
+            "0": {
+              "median": 0.7455503527699736
+            },
+            "1": {
+              "median": 0.7389096377950206
+            },
+            "2": {
+              "median": 0.7334148346367854
+            }
+          },
+          "goals": [
+            [
+              -0.09963407723875302,
+              -0.1506180739546537,
+              0.7455503527699736
+            ],
+            [
+              0.011429071455771576,
+              -0.14425755862972822,
+              0.7389096377950206
+            ],
+            [
+              0.0799785191387491,
+              -0.14730720390270807,
+              0.7334148346367854
+            ]
+          ]
+        }
+      },
+      "trigger": [
+        416,
+        576,
+        32
+      ],
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true,
+      "retain_visible_ranking_slots": true
+    },
+    "press_stapler": {
+      "kind": "contact",
+      "max_steps": 400,
+      "offsets": [
+        [
+          0,
+          0,
+          -0.02
+        ],
+        [
+          0,
+          0,
+          0.02
+        ],
+        [
+          0.018,
+          0,
+          0.02
+        ],
+        [
+          0.018,
+          0,
+          -0.035
+        ],
+        [
+          -0.04,
+          0,
+          -0.035
+        ],
+        [
+          0.04,
+          0,
+          -0.035
+        ],
+        [
+          0.04,
+          0,
+          0.02
+        ],
+        [
+          0,
+          -0.04,
+          0.02
+        ],
+        [
+          0,
+          -0.04,
+          -0.035
+        ],
+        [
+          0,
+          0.04,
+          -0.035
+        ],
+        [
+          0,
+          0.04,
+          0.02
+        ],
+        [
+          0,
+          0,
+          0.02
+        ],
+        [
+          0,
+          0,
+          -0.055
+        ]
+      ],
+      "trigger": [
+        128,
+        192,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "activation_threshold": 0.5,
+      "gripper_threshold": 0.2,
+      "joint_increment": 0.025,
+      "minimum_move_steps": 12,
+      "maximum_move_steps": 60,
+      "hold_steps": 6,
+      "parameters": {},
+      "execution_chunk_size": 40,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "click_alarmclock": {
+      "kind": "contact",
+      "max_steps": 400,
+      "offsets": [
+        [
+          0,
+          0,
+          -0.04
+        ],
+        [
+          0,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          -0.055
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          -0.055
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          -0.055
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          -0.055
+        ]
+      ],
+      "trigger": [
+        176,
+        240,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "activation_threshold": 0.5,
+      "gripper_threshold": 0.2,
+      "joint_increment": 0.025,
+      "minimum_move_steps": 12,
+      "maximum_move_steps": 60,
+      "hold_steps": 6,
+      "parameters": {},
+      "execution_chunk_size": 40
+    },
+    "beat_block_hammer": {
+      "kind": "contact",
+      "max_steps": 400,
+      "offsets": [
+        [
+          0,
+          0,
+          -0.02
+        ],
+        [
+          0,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          -0.045
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          -0.045
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          -0.045
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          -0.045
+        ]
+      ],
+      "trigger": [
+        160,
+        224,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "activation_threshold": 0.5,
+      "gripper_threshold": 0.2,
+      "joint_increment": 0.025,
+      "minimum_move_steps": 12,
+      "maximum_move_steps": 60,
+      "hold_steps": 6,
+      "parameters": {},
+      "execution_chunk_size": 40
+    },
+    "click_bell": {
+      "kind": "contact",
+      "max_steps": 400,
+      "offsets": [
+        [
+          0,
+          0,
+          -0.04
+        ],
+        [
+          0,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          0.025,
+          0,
+          -0.055
+        ],
+        [
+          0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          -0.025,
+          0,
+          -0.055
+        ],
+        [
+          -0.025,
+          0,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          0.025,
+          -0.055
+        ],
+        [
+          0,
+          0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          0.02
+        ],
+        [
+          0,
+          -0.025,
+          -0.055
+        ]
+      ],
+      "trigger": [
+        128,
+        192,
+        16
+      ],
+      "stall_window": 33,
+      "stall_threshold": 0.1,
+      "activation_threshold": 0.5,
+      "gripper_threshold": 0.2,
+      "joint_increment": 0.025,
+      "minimum_move_steps": 12,
+      "maximum_move_steps": 60,
+      "hold_steps": 6,
+      "parameters": {},
+      "execution_chunk_size": 40
+    },
+    "place_bread_basket": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 700,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true,
+      "num_inference_steps": 20
+    },
+    "pick_diverse_bottles": {
+      "kind": "bottle",
+      "max_steps": 400,
+      "parameters": {
+        "grasp_correction": {
+          "estimated_grasp_point": [
+            0.12536470949109957,
+            -0.011922733142228116,
+            -0.02650316399282513
+          ],
+          "alpha": 1.0,
+          "max_xy_shift": 0.025,
+          "min_radial_pullback": 0.003
+        }
+      },
+      "execution_chunk_size": 32,
+      "fully_close_native_grasp": true,
+      "fixed_gaussian_noise": false,
+      "session_gaussian_noise": true,
+      "single_sample_inference": true,
+      "num_inference_steps": 20
+    },
+    "place_phone_stand": {
+      "kind": "proactive_grasp",
+      "max_steps": 400,
+      "execution_chunk_size": 40
+    },
+    "place_mouse_pad": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 400
+    },
+    "stack_bowls_three": {
+      "kind": "timing",
+      "max_steps": 1200,
+      "pre_grasp_hold_steps": 6,
+      "grasp_hold_steps": 12,
+      "release_hold_steps": 6,
+      "interpolate": false,
+      "parameters": {},
+      "execution_chunk_size": 40,
+      "recent_visual_history": true,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "place_can_basket": {
+      "kind": "can_release_cadence",
+      "execution_chunk_size": 40,
+      "max_steps": 700,
+      "repeat_factor": 2,
+      "minimum_closed_observations": 16,
+      "maximum_native_rows": 20,
+      "fully_open_tail_rows": 4,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true,
+      "observe_after_release_clearance": false,
+      "observe_at_release_end": true
+    },
+    "stamp_seal": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 400,
+      "num_inference_steps": 20
+    },
+    "put_object_cabinet": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 700
+    },
+    "place_bread_skillet": {
+      "kind": "bread_release_retreat",
+      "execution_chunk_size": 32,
+      "max_steps": 500,
+      "recent_visual_history": true,
+      "fixed_gaussian_noise": false,
+      "session_gaussian_noise": true,
+      "single_sample_inference": true,
+      "pan_only_role_fallback": true
+    },
+    "place_object_basket": {
+      "kind": "basket_inward_lift",
+      "execution_chunk_size": 40,
+      "max_steps": 700,
+      "session_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "move_stapler_pad": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 32,
+      "max_steps": 400
+    },
+    "pick_dual_bottles": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 400
+    },
+    "shake_bottle": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 700,
+      "fixed_gaussian_noise": false,
+      "session_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "rotate_qrcode": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 400,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "place_dual_shoes": {
+      "kind": "timing",
+      "execution_chunk_size": 40,
+      "max_steps": 600,
+      "interpolate": false,
+      "pre_grasp_hold_steps": 0,
+      "grasp_hold_steps": 12,
+      "release_hold_steps": 6,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "stack_bowls_two": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 900,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "dump_bin_bigbin": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 600,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "handover_block": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 800,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "scan_object": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 500,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    },
+    "place_object_stand": {
+      "kind": "native_prefix",
+      "execution_chunk_size": 40,
+      "max_steps": 400,
+      "fixed_gaussian_noise": true,
+      "single_sample_inference": true
+    }
+  }
+}

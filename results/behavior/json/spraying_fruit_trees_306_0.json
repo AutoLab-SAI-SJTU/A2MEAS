@@ -1,0 +1,25 @@
+{
+  "task": "spraying_fruit_trees",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 2842,
+  "success": true,
+  "agent_distance": {
+    "base": 27.673865527461828,
+    "left": 33.251031686450006,
+    "right": 35.313678487458674
+  },
+  "normalized_agent_distance": {
+    "base": 0.8490501616654721,
+    "left": 0.6493753397973222,
+    "right": 0.2141946215737985
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 2842,
+    "simulator_time": 94.73333333333333,
+    "normalized_time": 2.9366185784658696
+  }
+}

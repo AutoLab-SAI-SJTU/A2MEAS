@@ -1,0 +1,169 @@
+{
+  "name": "policy_preprocessor",
+  "steps": [
+    {
+      "registry_name": "to_batch_processor",
+      "config": {}
+    },
+    {
+      "registry_name": "normalizer_processor",
+      "config": {
+        "features": {
+          "observation.state": {
+            "type": "STATE",
+            "shape": [
+              23
+            ]
+          },
+          "observation.rgb.left_realsense_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          },
+          "observation.rgb.right_realsense_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          },
+          "observation.rgb.zed_link_camera_0": {
+            "type": "VISUAL",
+            "shape": [
+              3,
+              224,
+              224
+            ]
+          }
+        },
+        "norm_map": {
+          "STATE": "QUANTILES",
+          "VISUAL": "IDENTITY"
+        }
+      },
+      "state_file": "observation_stats.safetensors"
+    },
+    {
+      "registry_name": "pi05_global_task_processor",
+      "config": {
+        "task_text_to_id": {
+          "assembling gift baskets": 0,
+          "attach a camera to a tripod": 1,
+          "boxing books up for storage": 2,
+          "boxing food after dinner": 3,
+          "bringing in wood": 4,
+          "bringing paper to recycling": 5,
+          "bringing water": 6,
+          "can meat": 7,
+          "canning food": 8,
+          "carrying in groceries": 9,
+          "carrying out garden furniture": 10,
+          "chop an onion": 11,
+          "chopping wood": 12,
+          "clean a keyboard": 13,
+          "clean a patio": 14,
+          "clean a trumpet": 15,
+          "clean boxing gloves": 16,
+          "clean up broken glass": 17,
+          "clean up your desk": 18,
+          "clean your rusty garden tools": 19,
+          "cleaning up branches and twigs": 20,
+          "cleaning up plates and food": 21,
+          "clearing food from table into fridge": 22,
+          "collecting aluminum cans": 23,
+          "collecting childrens toys": 24,
+          "composting waste": 25,
+          "cook a brisket": 26,
+          "cook a frozen pie": 27,
+          "cook bacon": 28,
+          "cook broccolini": 29,
+          "cook brussels sprouts": 30,
+          "cook cabbage": 31,
+          "cook hot dogs": 32,
+          "dispose of batteries": 33,
+          "dispose of glass": 34,
+          "freeze fruit": 35,
+          "freeze pies": 36,
+          "getting organized for work": 37,
+          "halve an egg": 38,
+          "hanging pictures": 39,
+          "hiding Easter eggs": 40,
+          "installing a fax machine": 41,
+          "installing a modem": 42,
+          "installing a scanner": 43,
+          "installing smoke detectors": 44,
+          "laying tile floors": 45,
+          "loading the car": 46,
+          "make cabinet doors": 47,
+          "make gift bags for baby showers": 48,
+          "make microwave popcorn": 49,
+          "make pizza": 50,
+          "make rose centerpieces": 51,
+          "moving boxes to storage": 52,
+          "organizing art supplies": 53,
+          "organizing school stuff": 54,
+          "outfit a basic toolbox": 55,
+          "packing meal for delivery": 56,
+          "picking up toys": 57,
+          "picking up trash": 58,
+          "polishing shoes": 59,
+          "preparing lunch box": 60,
+          "put together a basic pruning kit": 61,
+          "putting away Halloween decorations": 62,
+          "putting away toys": 63,
+          "putting dirty dishes in sink": 64,
+          "putting dishes away after cleaning": 65,
+          "putting shoes on rack": 66,
+          "putting up Christmas decorations inside": 67,
+          "re shelving library books": 68,
+          "rearrange your room": 69,
+          "rearranging kitchen furniture": 70,
+          "scrubbing bathroom floor": 71,
+          "set up a coffee station in your kitchen": 72,
+          "setting mousetraps": 73,
+          "setting the fire": 74,
+          "setting the table": 75,
+          "setup a bar for a cocktail party": 76,
+          "slicing vegetables": 77,
+          "sorting books on shelf": 78,
+          "sorting bottles cans and paper": 79,
+          "sorting household items": 80,
+          "sorting vegetables": 81,
+          "spraying for bugs": 82,
+          "spraying fruit trees": 83,
+          "stacking wood": 84,
+          "store batteries": 85,
+          "store honey": 86,
+          "store produce": 87,
+          "storing food": 88,
+          "sweeping garage": 89,
+          "thawing frozen food": 90,
+          "tidying bathroom": 91,
+          "tidying bedroom": 92,
+          "tidying living room": 93,
+          "turning on radio": 94,
+          "turning out all lights before sleep": 95,
+          "unloading the car": 96,
+          "vacuuming floors": 97,
+          "wash a baseball cap": 98,
+          "wash dog toys": 99
+        },
+        "num_tasks": 100
+      }
+    },
+    {
+      "registry_name": "pi05_prepare_state_tokenizer_processor_step",
+      "config": {}
+    },
+    {
+      "registry_name": "device_processor",
+      "config": {
+        "device": "cuda"
+      }
+    }
+  ]
+}

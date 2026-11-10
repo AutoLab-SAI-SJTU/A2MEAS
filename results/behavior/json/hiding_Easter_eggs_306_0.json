@@ -1,0 +1,25 @@
+{
+  "task": "hiding_Easter_eggs",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 11430,
+  "success": false,
+  "agent_distance": {
+    "base": 167.3382168717228,
+    "left": 175.4024939660012,
+    "right": 176.21601546941383
+  },
+  "normalized_agent_distance": {
+    "base": 0.13084518533375106,
+    "left": 0.061129689536103954,
+    "right": 0.06940061587150516
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 11430,
+    "simulator_time": 381.0,
+    "normalized_time": 0.6666426071741033
+  }
+}

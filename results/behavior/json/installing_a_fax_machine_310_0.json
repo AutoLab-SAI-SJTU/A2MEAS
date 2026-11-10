@@ -1,0 +1,25 @@
+{
+  "task": "installing_a_fax_machine",
+  "instance_id": 310,
+  "rollout_id": 0,
+  "steps": 2281,
+  "success": true,
+  "agent_distance": {
+    "base": 14.831120918250178,
+    "left": 20.322061040627887,
+    "right": 20.330590434430633
+  },
+  "normalized_agent_distance": {
+    "base": 0.6899411080526254,
+    "left": 0.289950905482466,
+    "right": 0.36415076206847685
+  },
+  "q_score": {
+    "final": 1.0
+  },
+  "time": {
+    "simulator_steps": 2281,
+    "simulator_time": 76.03333333333333,
+    "normalized_time": 1.7873257343270494
+  }
+}

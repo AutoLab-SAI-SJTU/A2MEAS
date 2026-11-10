@@ -1,0 +1,25 @@
+{
+  "task": "dispose_of_batteries",
+  "instance_id": 304,
+  "rollout_id": 0,
+  "steps": 21643,
+  "success": false,
+  "agent_distance": {
+    "base": 79.18372610058134,
+    "left": 134.11587215319014,
+    "right": 128.46013251815384
+  },
+  "normalized_agent_distance": {
+    "base": 0.5887535519707974,
+    "left": 0.14641667451239784,
+    "right": 0.10212351289724901
+  },
+  "q_score": {
+    "final": 0.5
+  },
+  "time": {
+    "simulator_steps": 21643,
+    "simulator_time": 721.4333333333333,
+    "normalized_time": 0.6666538834727164
+  }
+}

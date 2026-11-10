@@ -1,0 +1,25 @@
+{
+  "task": "attach_a_camera_to_a_tripod",
+  "instance_id": 308,
+  "rollout_id": 0,
+  "steps": 5868,
+  "success": false,
+  "agent_distance": {
+    "base": 2.4635780639094165,
+    "left": 13.419477235449449,
+    "right": 11.54590964318777
+  },
+  "normalized_agent_distance": {
+    "base": 4.588285699403606,
+    "left": 0.5901422135193004,
+    "right": 0.5048541154519759
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 5868,
+    "simulator_time": 195.6,
+    "normalized_time": 0.666594239945467
+  }
+}

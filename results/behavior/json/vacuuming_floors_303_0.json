@@ -1,0 +1,25 @@
+{
+  "task": "vacuuming_floors",
+  "instance_id": 303,
+  "rollout_id": 0,
+  "steps": 3618,
+  "success": false,
+  "agent_distance": {
+    "base": 1.6286440208681512,
+    "left": 8.677902806952218,
+    "right": 8.441919059094047
+  },
+  "normalized_agent_distance": {
+    "base": 3.0437590636642358,
+    "left": 0.2814389668023678,
+    "right": 0.44219803268293956
+  },
+  "q_score": {
+    "final": 0.0
+  },
+  "time": {
+    "simulator_steps": 3618,
+    "simulator_time": 120.6,
+    "normalized_time": 0.6666072415699281
+  }
+}

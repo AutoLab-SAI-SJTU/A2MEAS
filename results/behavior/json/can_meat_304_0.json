@@ -1,0 +1,25 @@
+{
+  "task": "can_meat",
+  "instance_id": 304,
+  "rollout_id": 0,
+  "steps": 17771,
+  "success": false,
+  "agent_distance": {
+    "base": 104.99849225497502,
+    "left": 181.15647239826552,
+    "right": 183.77971430980006
+  },
+  "normalized_agent_distance": {
+    "base": 0.3015329012831598,
+    "left": 0.14384415668412792,
+    "right": 0.15484570811786544
+  },
+  "q_score": {
+    "final": 0.3333333333333333
+  },
+  "time": {
+    "simulator_steps": 17771,
+    "simulator_time": 592.3666666666667,
+    "normalized_time": 0.6666521298745147
+  }
+}

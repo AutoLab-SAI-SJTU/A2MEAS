@@ -1,0 +1,25 @@
+{
+  "task": "freeze_pies",
+  "instance_id": 306,
+  "rollout_id": 0,
+  "steps": 18683,
+  "success": false,
+  "agent_distance": {
+    "base": 45.37700420329428,
+    "left": 102.90599013566771,
+    "right": 110.18478752102692
+  },
+  "normalized_agent_distance": {
+    "base": 0.7809858897081446,
+    "left": 0.25667116136949863,
+    "right": 0.28261433089443033
+  },
+  "q_score": {
+    "final": 0.14285714285714285
+  },
+  "time": {
+    "simulator_steps": 18683,
+    "simulator_time": 622.7666666666667,
+    "normalized_time": 0.6666611357918963
+  }
+}

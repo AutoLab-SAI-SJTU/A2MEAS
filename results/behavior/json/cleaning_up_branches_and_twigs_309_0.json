@@ -1,0 +1,25 @@
+{
+  "task": "cleaning_up_branches_and_twigs",
+  "instance_id": 309,
+  "rollout_id": 0,
+  "steps": 18791,
+  "success": false,
+  "agent_distance": {
+    "base": 252.15742205719755,
+    "left": 281.4225385840982,
+    "right": 291.4644258940425
+  },
+  "normalized_agent_distance": {
+    "base": 0.16203726888805145,
+    "left": 0.08821219552954004,
+    "right": 0.08666786666165259
+  },
+  "q_score": {
+    "final": 0.4
+  },
+  "time": {
+    "simulator_steps": 18791,
+    "simulator_time": 626.3666666666667,
+    "normalized_time": 0.6666526528657336
+  }
+}
